@@ -1,0 +1,68 @@
+
+
+1	TurnOnBioDomeHeater(bioDome)
+
+2	TurnOffBioDomeHeater(bioDome)
+
+3	OpenBioDomeVent(bioDome)
+
+4	CloseBioDomeVent(bioDome)
+
+5	TurnOnBioDomeSprinkler(bioDome)
+
+6	TurnOffBioDomeSprinkler(bioDome)
+
+=========================================================
+
+
+Temperature:	Temp greater-than Optimal => { 2, 3, 5 }
+
+		Temp less-than Optimal    => { 4, 6, 1 }
+
+
+=========================================================
+
+
+Humidity:	Humidity greater-than Optimal => { 6, 3 }
+
+		Humidity less-than Optimal    => { 5, 4 }
+
+
+=========================================================
+
+
+Wind Speed	Wind Speed greater-than Optimal => { 4 } 
+
+
+=========================================================
+
+
+Order of Precidence:
+
+
+	Temperature > Humidity > Wind Speed
+
+
+=========================================================
+
+
+If ((Temperature >= 55 && Temperature <= 75) && 
+    (Humidity >= 55 && Humidity <= 70) &&
+    (WindSpeed >= 0 && WindSpeed <= 10))
+   { 
+	//  Do Nothing
+   }
+   else if ()
+   ...
+   }
+
+
+
+
+
+
+
+
+
+
+

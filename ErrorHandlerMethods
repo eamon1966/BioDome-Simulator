@@ -1,0 +1,355 @@
+package controlsystemapplication;
+
+import java.awt.Color;
+
+public class ErrorHandler {
+
+	
+	public ErrorHandler() {
+	}
+
+	//##########################################################################################################
+
+	// Checks that the inputed Climate data is in the specified format and in range
+	public static void CheckForValidInput() {
+		
+		// Checks for a valid temperature format and range
+		CheckForValidTemperatureValue();
+		
+		// Checks for a valid humidity format and range		
+		CheckForValidHumidityValue();
+		
+		// Checks for a valid wind speed format and range
+		CheckForValidWindSpeedValue();
+		
+		if (Constants.emptyValue == 3) {
+			
+			Controls.Append(Constants.BLK,"   Data Set Empty:  No values were entered for\n"
+										+ "   temperature, humidity or wind speed...\n\n");
+			Controls.Append(Constants.BLK,"   ***************************************************\n\n");
+	    	Controls.Append(Constants.BLK,"   No values were entered for:\n\n");
+	    	Controls.Append(Constants.BLK,"   (1) ");
+	    	Controls.Append(Constants.REDBLK,"Temperature\n\n");
+	    	Controls.Append(Constants.BLK,"   (2) ");
+	    	Controls.Append(Constants.BLUYEL,"Humidity\n\n");
+	    	Controls.Append(Constants.BLK,"   (3) ");
+	    	Controls.Append(Constants.GREBLK,"Wind Speed\n\n");
+	    	Controls.Append(Constants.BLK,"   At least one of the three values:\n"
+	    								+ "   (1) Temperature, (2) Humidity or\n"
+	    			                    + "   (3) Wind Speed must be entered in\n"
+	    			                    + "   order for a valid test to be run...\n\n");
+	    	Controls.Append(Constants.BLK,"   ***************************************************\n\n");
+	    	
+	    	Constants.emptyValue = 0;
+		}
+    	
+    	//GreenHouseControlPanel.tfStatus.setText("");
+    
+    	Constants.errorReport = Constants.tempError.toString();
+	}
+
+	//##########################################################################################################
+	
+	// Outputs the list of errors found when trying to implement user-inputed climate values
+	public static void OutputValidationErrorReport() {
+		
+		String completeErrRpt = Constants.USER_VALIDATION_REPORT_HEADER + Constants.errorReport;
+	    
+		Controls.Append(Constants.BLK, completeErrRpt + "\n");
+		GreenHouseControlPanel.tpBioLoggingWindow.setText(Constants.errorReport);
+		Constants.tempError.setLength(0);
+
+	}
+
+	//##########################################################################################################
+	
+	// Checks the inputed temperature value against range and format 
+	public static void CheckForValidTemperatureValue() {
+		
+		Constants.emptyValue = 0;
+		
+		// Get the temperature value from the temperature text-field
+		String temperatureValue = GreenHouseControlPanel.tfBioSingleTempValue.getText();
+		
+		if (!temperatureValue.equals("")) {
+			
+			try {
+				// Convert value from a string to a number
+				Constants.temperature = Double.parseDouble(temperatureValue);
+		    
+				if(Constants.temperature < 20 || Constants.temperature > 110) {
+		    	
+					Controls.Append(Constants.BLK,"   (1) The temperature value [ ");
+					Controls.Append(Constants.BLU,temperatureValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"out of Range\n");
+					Constants.failFlag = 1;
+				}
+				
+			} catch (Exception e) { 
+				
+				Controls.Append(Constants.BLK,"   (1) The temperature value [ ");
+				Controls.Append(Constants.BLU,temperatureValue);
+				Controls.Append(Constants.BLK," ] is ");
+				Controls.Append(Constants.RED,"illegally formatted");
+				Controls.Append(Constants.BLK," input\n");
+				Constants.failFlag = 1;
+			}
+		} else {
+			
+			Constants.emptyValue++;
+		}
+	}
+	//##########################################################################################################
+	
+	// Checks the inputed humidity value against range and format
+	public static void CheckForValidHumidityValue() {
+		
+		// Get the humidity value from the humidity text-field
+		String humidityValue = GreenHouseControlPanel.tfSingleHumidityValue.getText();
+		
+		if (!humidityValue.equals("")) {
+			
+			try {
+				// Convert value from a string to a number
+				Constants.humidity = Double.parseDouble(humidityValue);
+		    
+				if (Constants.humidity < 0 || Constants.humidity > 100) {
+		    	
+					if (Constants.failFlag > 0) {
+						
+						Controls.Append(Constants.BLK,"   (2) The humidity %age value [ ");
+						Controls.Append(Constants.BLU,humidityValue);
+						Controls.Append(Constants.BLK," ] is ");
+						Controls.Append(Constants.RED,"out of Range\n");
+						Constants.failFlag++;
+						
+					} else {
+						
+						Controls.Append(Constants.BLK,"   (1) The humidity %age value [ ");
+						Controls.Append(Constants.BLU,humidityValue);
+						Controls.Append(Constants.BLK," ] is ");
+						Controls.Append(Constants.RED,"out of Range\n");
+						Constants.failFlag = 1;
+					}	
+				} 
+		 	} catch (Exception e) { 
+				
+		 		if (Constants.failFlag > 0) {
+		 			
+					Controls.Append(Constants.BLK,"   (2) The humidity value [ ");
+					Controls.Append(Constants.BLU,humidityValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"illegally formatted");
+					Controls.Append(Constants.BLK," input\n");
+					Constants.failFlag++;
+					
+				} else {
+					
+					Controls.Append(Constants.BLK,"   (1) The humidity value [ ");
+					Controls.Append(Constants.BLU,humidityValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"illegally formatted");
+					Controls.Append(Constants.BLK," input\n");
+					Constants.failFlag = 1;
+				}
+		   }
+			
+		} else {
+			
+			Constants.emptyValue++;			
+		}
+	}
+
+	//##########################################################################################################
+	
+	// Checks the inputed wind speed value against range and format
+	public static void CheckForValidWindSpeedValue() {
+		
+		// Get the wind speed value from the wind speed text-field
+		String windSpeedValue = GreenHouseControlPanel.tfBioSingleWindSpeedValue.getText();
+		
+		if (!windSpeedValue.equals("")) {
+			
+			try {
+				// Convert value from a string to a number
+				Constants.windSpeed = Double.parseDouble(windSpeedValue);
+				
+				if (Constants.windSpeed < 0 || Constants.windSpeed > 25) {
+				
+					if ((Constants.failFlag > 0) && (Constants.failFlag < 2)) {
+						Controls.Append(Constants.BLK,"   (2) The wind speed value [ ");
+						Controls.Append(Constants.BLU,windSpeedValue);
+						Controls.Append(Constants.BLK," ] is ");
+						Controls.Append(Constants.RED,"out of Range\n");
+						
+					} else if (Constants.failFlag == 2) {
+						
+						Controls.Append(Constants.BLK,"   (3) The wind speed value [ ");
+						Controls.Append(Constants.BLU,windSpeedValue);
+						Controls.Append(Constants.BLK," ] is ");
+						Controls.Append(Constants.RED,"out of Range\n");
+						
+					} else {
+						
+						Controls.Append(Constants.BLK,"   (1) The wind speed value [ ");
+						Controls.Append(Constants.BLU,windSpeedValue);
+						Controls.Append(Constants.BLK," ] is ");
+						Controls.Append(Constants.RED,"out of Range\n");
+					}		
+				}
+				
+				Constants.failFlag = 0;
+
+			} catch (Exception e) { 
+			
+				if ((Constants.failFlag > 0) && (Constants.failFlag < 2)) {
+					
+					Controls.Append(Constants.BLK,"   (2) The wind speed value [ ");
+					Controls.Append(Constants.BLU,windSpeedValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"illegally formatted");
+					Controls.Append(Constants.BLK," input\n");
+					
+				} else if (Constants.failFlag == 2) {
+					
+					Controls.Append(Constants.BLK,"   (3) The wind speed value [ ");
+					Controls.Append(Constants.BLU,windSpeedValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"illegally formatted");
+					Controls.Append(Constants.BLK," input\n");
+					
+				} else {
+					
+					Controls.Append(Constants.BLK,"   (1) The wind speed value [ ");
+					Controls.Append(Constants.BLU,windSpeedValue);
+					Controls.Append(Constants.BLK," ] is ");
+					Controls.Append(Constants.RED,"illegally formatted");
+					Controls.Append(Constants.BLK," input\n");
+				}
+					
+				Constants.failFlag = 0;
+			}
+
+		} else {
+			
+			Constants.emptyValue++;			
+		}
+		
+		Controls.Append(Constants.BLK,"\n");
+	}
+	
+	//##########################################################################################################
+	
+	// Method checks if all temperature affecting (heat reducing) control units are active. 
+	// The method counts the number that have been deployed and returns the number being used.
+	
+	public static int TemperatureHotTest() {
+			
+		int criticalHotTest = 0;
+		
+		// Count the number of Greenhouse ventilation units that are 'Open'
+		for (int i = 0; i < 4; i++) {
+			if (Controls.bioDomeControlUnits[i].getState().equals("Open")) {	
+				Constants.ventStateCounter++;
+				criticalHotTest+= Constants.ventStateCounter;
+			}
+		}
+		
+		// Count the number of Greenhouse radiator units that are 'Off'
+		for (int i = 4; i < 8; i++) {
+			if (Controls.bioDomeControlUnits[i].getState().equals("Off")) {	
+				Constants.radStateCounter++;
+				criticalHotTest+= Constants.radStateCounter;
+			}
+		}
+		
+		// Count the number of Greenhouse sprinkler units that are 'On'
+		for (int i = 8; i < 10; i++) {	
+			if (Controls.bioDomeControlUnits[i].getState().equals("On")) {
+				Constants.sprinkStateCounter++;
+				criticalHotTest+= Constants.sprinkStateCounter;
+			}
+		}
+		
+		return criticalHotTest;
+	}	
+	//##########################################################################################################
+		
+	public static void HeatSeverityDisplay() {	
+		
+		int heatSeverity = TemperatureHotTest();
+		
+		if (heatSeverity == 10) {
+			
+			Controls.Append(Constants.RED, Constants.CRITICAL_HOT_WARNING);
+			GreenHouseControlPanel.lblBioCurTempTooHot.setBackground(Color.RED);
+			GreenHouseControlPanel.lblBioCurTempOptimal.setBackground(Color.LIGHT_GRAY);
+			GreenHouseControlPanel.lblBioCurTempTooCold.setBackground(Color.LIGHT_GRAY);
+			
+		} else if (heatSeverity >= 5 && heatSeverity <10) {
+			
+			Controls.Append(Constants.ORG, Constants.MODERATE_HOT_WARNING);
+			GreenHouseControlPanel.lblBioCurTempTooHot.setBackground(Color.ORANGE);
+			GreenHouseControlPanel.lblBioCurTempOptimal.setBackground(Color.LIGHT_GRAY);
+			GreenHouseControlPanel.lblBioCurTempTooCold.setBackground(Color.LIGHT_GRAY);
+		
+		} else {
+			
+			Controls.Append(Constants.YEL, Constants.LOW_HOT_WARNING);
+			GreenHouseControlPanel.lblBioCurTempTooHot.setBackground(Color.YELLOW);
+			GreenHouseControlPanel.lblBioCurTempOptimal.setBackground(Color.LIGHT_GRAY);
+			GreenHouseControlPanel.lblBioCurTempTooCold.setBackground(Color.LIGHT_GRAY);			
+		}
+	}
+	
+	//##########################################################################################################
+
+	public static void TooColdHandler() {
+		
+		int ventStateCounter = 0;
+		int radStateCounter = 0;
+		int sprinkStateCounter = 0;
+		
+	}
+
+	//##########################################################################################################
+	
+	public static void TooWetHandler() {
+		
+		int ventStateCounter = 0;
+		int radStateCounter = 0;
+		int sprinkStateCounter = 0;
+		
+	}
+
+	//##########################################################################################################
+
+	public static void TooDryHandler() {
+		
+		int ventStateCounter = 0;
+		int radStateCounter = 0;
+		int sprinkStateCounter = 0;
+		
+	}
+
+	//##########################################################################################################
+	
+	public static void TooWindyHandler() {
+		
+		int ventStateCounter = 0;
+		int radStateCounter = 0;
+		int sprinkStateCounter = 0;
+		
+	}
+
+	//##########################################################################################################
+	
+	public static void SelectHandler() {
+		
+		
+		
+	}
+	//##########################################################################################################
+
+}

@@ -1,0 +1,297 @@
+Form
+1. BioDomeSimulator
+
+Panels:
+1.   panelBioDomeView
+	1.1   panelBioExternalClimateControlView
+		1.1.1   lblBioDomeClimateView
+		1.1.2   lblCurTempClimateView
+		1.1.3   lblBioCurTempOptimal
+		1.1.4   lblBioCurTempTooHot
+		1.1.5   lblBioCurTempTooCold
+		1.1.6   lblCurTempSeverity
+		1.1.7   lblBioTempSevLow
+		1.1.8   lblBioTempSevMod
+		1.1.9   lblBioTempSevHigh
+		1.1.10   lblCurrentHumidClimateView
+		1.1.11   lblBioCurHumOptimal
+		1.1.12   lblBioCurHumTooHum
+		1.1.13   lblBioCurHumTooDry
+		1.1.14   lblCurHumSeverity
+		1.1.15   lblBioHumidSevLow
+		1.1.16   lblBioHumidSevMod
+		1.1.17   lblBioHumidSevHigh
+		1.1.18	 lblCurrentWindClimateView
+		1.1.19   lblBioCurWindSpeedOptimal
+		1.1.20   lblBioCurWindSpeedHigh
+		1.1.21   lblCurWindSeverity
+		1.1.22   lblBioWindSpeedSevLow
+		1.1.23   lblBioWindSpeedSevMod
+		1.1.24	 lblBioWindSpeedSevHigh 
+
+	1.2   panelBioTempControlView
+		1.2.1   lblTemperatureControlView
+		1.2.2   lblHeater1
+		1.2.3   lblBioHeater1Off
+		1.2.4   lblBioHeater1On
+		1.2.5   lblHeater2
+		1.2.6   lblBioHeater2Off
+		1.2.7   lblBioHeater2On
+		1.2.8   lblHeater3
+		1.2.9   lblBioHeater3Off
+		1.2.10   lblBioHeater3On
+		1.2.11   lblHeater4
+		1.2.12   lblBioHeater4Off
+		1.2.13   lblBioHeater4On
+
+	1.3   panelBioVentilationControlView
+		1.3.1   lblVentilationControlView
+		1.3.2   lblVentilationUnit1
+		1.3.3   lblBioVent1Closed
+		1.3.4   lblBioVent1HalfOpen
+		1.3.5   lblBioVent1Open
+		1.3.6   lblVentilationUnit2
+		1.3.7   lblBioVent2Closed
+		1.3.8   lblBioVent2HalfOpen
+		1.3.9   lblBioVent2Open
+		1.3.10   lblVentilationUnit3
+		1.3.11   lblBioVent3Closed
+		1.3.12   lblBioVent3HalfOpen
+		1.3.13   lblBioVent3Open
+		1.3.14   lblVentilationUnit4
+		1.3.15   lblBioVent4Closed
+		1.3.16   lblBioVent4HalfOpen
+		1.3.17   lblBioVent4Open
+
+	1.4   panelBioMoistureControlView
+		1.4.1   lblMoistureControlView
+		1.4.2   lblSprinkler1
+		1.4.3   lblBioSprink1Off
+		1.4.4   lblBioSprink1On
+		1.4.5   lblSprinkler2
+		1.4.6   lblBioSprink2Off
+		1.4.7   lblBioSprink2On
+		
+	1.5   panelBioCurrentSystemControl
+		1.5.1   lblBioCurrentStatus
+		1.5.2   lblBioCurrentStatusValue
+		1.5.3   btnBioChangeSystemState
+		1.5.4   btnBioViewSystemState
+
+	1.6   panelBioCurrentClimateValues
+		1.6.1   lblBioCurrentClimateValues
+		1.6.2	lblCurTempReading
+		1.6.3	tbCurTempReading
+		1.6.4	lblCurHumidReading
+		1.6.5	tbCurHumidReading
+		1.6.6	lblCurWindSpeedReading
+		1.6.7	tbCurWindSpeedReading
+
+	1.7   panelBioResourceAvailability
+		1.7.1   lblResourceAvailability
+		1.7.2	lblAvailableResource
+		1.7.3	lblAvailableGreen
+		1.7.4	lblPartiallyAvailableResources
+		1.7.5	lblPartiallyAvailOrange
+		1.7.6	lblUnavailableResources
+		1.7.7	lblUnavailableRed
+		1.7.8	lblHeatersInUse
+		1.7.9	lblHeater1InUse
+		1.7.10	lblHeater2InUse
+		1.7.11	lblHeater3InUse
+		1.7.12	lblHeater4InUse
+		1.7.13	lblVentsInUse
+		1.7.14	lblVent1InUse
+		1.7.15	lblVent2InUse
+		1.7.16	lblVent3InUse
+		1.7.17	lblVent4InUse
+		1.7.18	lblSprinklersInUse
+		1.7.19	lblSprink1InUse
+		1.7.20	lblSprink2InUse
+
+	1.8   pbBioCompanyLogo
+
+2.   panelBioDomeontrolCover
+	2.1   pbBioDomeControlCover
+
+	2.2   panelBioControlSeperator <empty panel - used to seperate panelBioDomeView from panelBioDomeTestBed>
+
+3.   panelBioDomeTestBed
+	3.1   panelTbMainTestPage
+		3.1.1   pbCompanyLogo
+		3.1.2   panelTestMethodSelection
+			3.1.2.1   lblTmEnterTesterName
+			3.1.2.2   tbTmEnterTesterName
+			3.1.2.3   lblTmTesterID
+			3.1.2.4   tbTmTesterID
+			3.1.2.5   lblTmDesignation
+			3.1.2.6   lblTmSelectTheTestMethod
+			3.1.2.7   cmbTmDesignation
+			3.1.2.8   rbTmExecuteSingleTestcase
+			3.1.2.9   rbTmExecuteFullTestPlan
+			3.1.2.10   btnExitSimulator
+
+	3.2   panelExpTestcaseImplementationTool
+		3.2.1   lblExpExploratoryTestcaseImplementationTool
+		3.2.2   lblExpSetClimateTestInputs
+		3.2.3   lblExpSetControlInputs
+		3.2.4   lblExpHeater1
+		3.2.5   lblExpVent1
+		3.2.6   lblExpSprink1
+		3.2.7   lblExpTempValue
+		3.2.8   numExpTempValue
+		3.2.9   cmbExpHeater1
+		3.2.10   cmbExpVent1
+		3.2.11   cmbExpSprink1
+		3.2.12   lblExpHeater2
+		3.2.13   lblExpVent2
+		3.2.14   lblExpSprink2
+		3.2.15   lblExpHumidValue
+		3.2.16   numExpHumidValue 
+		3.2.17   cmbExpHeater2
+		3.2.18   cmbExpVent2
+		3.2.19   cmbExpSprink2
+		3.2.20   lblExpHeater3
+		3.2.21   lblExpVent3
+		3.2.22   lblExpWindSpeedValue
+		3.2.23   numExpWindSpeedValue
+		3.2.24   cmbExpHeater3
+		3.2.25   cmbExpVent3
+		3.2.26   lblExpDateOfTest
+		3.2.27   lblExpHeater4
+		3.2.28   lblExpVent4
+		3.2.29   dtpExpDateOfTest
+		3.2.30   cmbExpHeater4
+		3.2.31   cmbExpVent4
+		3.2.32   lblExpExpectedResults
+		3.2.33   rtbExpExpectedResults
+		3.2.34   btnRunExpTestCase
+		3.2.35   lblExpTestcaseResult
+		3.2.36   tbExpTestcaseResult
+		3.2.37   lblExpActualResults
+		3.2.38   btnExpClearTestCase
+		3.2.39   rtbExpActualResults
+		3.2.40   btnExpSaveTestCase
+		3.2.41   btnExpDeleteTestCase
+		3.2.42   btnExpFirstTestCase
+		3.2.43   btnExpPreviousTestCase
+		3.2.44   lblExpTestCaseNumberOf
+		3.2.45   tbExpTestCaseNumberOf
+		3.2.46   btnExpNextTestCase
+		3.2.47   btnExpLastTestCase
+		3.2.48   btnExpCloseTestSession
+
+	3.3   panelTpTestplanImplementationTool
+		3.3.1   lblTpTestPlanImplementationTool
+		3.3.2   lblTpClimateTestInputs
+		3.3.3   lblTpControlInputs
+		3.3.4   lblTpCurrentTestcase
+		3.3.5   tbTpCurrentTestcase
+		3.3.6   lblTpTempValue
+		3.3.7   tbTpTempValue
+		3.3.8   lblTpHeater1
+		3.3.9   tbTpHeater1
+		3.3.10   lblTpHeater2
+		3.3.11   tbTpHeater2
+		3.3.12   lblTpHeater3
+		3.3.13   tbTpHeater3
+		3.3.14   lblTpHeater4
+		3.3.15   tbTpHeater4
+		3.3.16   lblTpHumidValue
+		3.3.17   tbTpHumidValue
+		3.3.18   lblTpVent1
+		3.3.19   tbTpVent1
+		3.3.20   lblTpVent2
+		3.3.21   tbTpVent2
+		3.3.22   lblTpVent3
+		3.3.23   tbTpVent3
+		3.3.24   lblTpWindSpeedValue
+		3.3.25   tbTpWindSpeedValue
+		3.3.26   lblTpVent4
+		3.3.27   tbTpVent4
+		3.3.28   lblTpSprink1
+		3.3.29   tbTpSprink1 
+		3.3.30   lblTpSprink2
+		3.3.31   tbTpSprink2
+		3.3.32   lblTpDateOfTest
+		3.3.33   lblTpSelectTestPlan
+		3.3.34   lblTpNumOfTestsInTestPlan
+		3.3.35   dtpTpDateOfTest
+		3.3.36   cmbTpSelectTestPlan
+		3.3.37   tbTpNumOfTestsInTestPlan
+		3.3.38   lblTpExpectedResults
+		3.3.39   panelTpSelectTestMode
+			 3.3.39.1  lblTpSTMSelectTestMode
+			 3.3.39.2  rbTpSTMAutoTestMode
+			 3.3.39.3  rbTpSTMManualTestMode
+		3.3.40   rtbTpExpectedResults
+		3.3.41   panelTpSelectTestCaseRange
+			 3.3.41.1  lblTpSTRSelectTestCaseRange
+			 3.3.41.2  lblTpFromTestCase
+			 3.3.41.3  tbTpFromTestCase
+			 3.3.41.4  lblTpToTestCase
+			 3.3.41.5  tbTpToTestCase
+		3.3.42   btnTpStartTestRun
+		3.3.43   btnTpPauseTestRun
+		3.3.44   lblTpActualResults
+		3.3.45   lblTpTestcaseResult
+		3.3.46   tbTpTestcaseResult
+		3.3.47   rtbTpActualResults
+		3.3.48   lblTpGotoTestCase
+		3.3.49   tbTpGotoTestCase
+		3.3.50   btnTpEditTestPlan
+		3.3.51   btnTpFirstTestCase
+		3.3.52   btnTpPreviousTestCase
+		3.3.53   lblTpTestCaseNumberOf
+		3.3.54   lblTpTestCaseNumberOf
+		3.3.55   btnTpNextTestCase
+		3.3.56   btnTpLastTestCase
+		3.3.57   btnTpCloseTestSession
+ 
+	3.4   panelBioDomeLogging
+		3.4.1   lblBdlLoggingAndReportingTool
+		3.4.2   lblBdlLoggingWindow
+		3.4.3   lblBdlLoggingFileName
+		3.4.4   tbBdlLoggingFilename
+		3.4.5   rtbBdlLoggingWindow
+		3.4.6   btnBdlCreateNewLogfile
+		3.4.7   btnBdlSaveToLogfile
+		3.4.8   btnBdlClearLoggingWindow
+		3.4.9   btnBdlPrintTestReport
+		3.4.10   btnBdlPrintLogReport
+
+	3.5   panelBioDomeLoggingCover
+		3.5.1 pbBioLoggingCover	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

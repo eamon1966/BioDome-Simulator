@@ -1,0 +1,56 @@
+<template>
+  <appName>TheLogoCreator</appName>
+  <fileVersion>6.0</fileVersion>
+  <canvas>
+    <nextGroupID>0</nextGroupID>
+    <documentParameters>
+      <canvasColor>0</canvasColor>
+      <canvasWindowRect>rect(0, 0, 2089, 695)</canvasWindowRect>
+      <imageExportDefaults/>
+      <windowTitle>Smaller Shuttle Pic</windowTitle>
+    </documentParameters>
+  </canvas>
+  <elements>
+    <imageModifier>
+      <x>79</x>
+      <y>-208</y>
+      <currentAngle>0</currentAngle>
+      <currentScale>1.15</currentScale>
+      <currentScaleH>1</currentScaleH>
+      <currentScaleV>1</currentScaleV>
+      <currentSkewX>0</currentSkewX>
+      <currentSkewY>0</currentSkewY>
+      <groupID>0</groupID>
+      <hidden>0</hidden>
+      <imageParameters>
+        <bitmap/>
+        <color>11184810</color>
+        <colorMode>none</colorMode>
+        <endColor>255</endColor>
+        <gradientAngle>0</gradientAngle>
+        <gradientCycles>1</gradientCycles>
+        <gradientOffset>(x=0, y=0)</gradientOffset>
+        <gradientType>linear</gradientType>
+        <opacity>0.9999</opacity>
+        <startColor>16711680</startColor>
+      </imageParameters>
+      <locked>0</locked>
+      <myName>Custom Logo Templates--shuttle1.jpg</myName>
+      <specialEffects>
+        <blur>0</blur>
+        <blurRadius>5</blurRadius>
+        <dropShadow>0</dropShadow>
+        <dropShadowParameters>
+          <blurRadius>30</blurRadius>
+          <color>0</color>
+          <offset>(x=0, y=0)</offset>
+          <distance>10</distance>
+          <angle>10</angle>
+          <opacity>1</opacity>
+        </dropShadowParameters>
+        <horizontalFlip>0</horizontalFlip>
+        <verticalFlip>0</verticalFlip>
+      </specialEffects>
+    </imageModifier>
+  </elements>
+</template>
