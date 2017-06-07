@@ -8,7 +8,7 @@ namespace BioDomeSimulator
 {
     class ClimateSeverityIndicator
     {
-        private string name = "MyCode";
+        private string name = "";
         private string state = "Null";
 
         public ClimateSeverityIndicator(String name)
